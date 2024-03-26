@@ -14,11 +14,11 @@ openBtn.addEventListener("click", (event) => {
 closeBtn.addEventListener("click", (event) => {
   mainModal.style.display = "none";
   viewDealinfo.style.display = "none";
-  //   form.style.display = "flex";
+  form.style.display = "flex";
   openBtn.style.display = "flex";
-  //   createJobBtn.style.backgroundColor = "";
-  //   createJobBtn.style.fontSize = "";
-  //   createJobBtn.innerHTML = "Create job";
+  createJobBtn.style.backgroundColor = "";
+  createJobBtn.style.fontSize = "";
+  createJobBtn.innerHTML = "Create job";
 });
 
 //! Some form validation for fields of the form
