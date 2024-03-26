@@ -87,6 +87,13 @@ createJobBtn.addEventListener("click", async (event) => {
 
       const responseData = await response.json();
       console.log("Form data has been sent successfully!", responseData);
+
+      // Hide the form after form data has been sent successfully
+      form.style.display = "none";
+      // Show a div block with text information and a link "ViewDeal" after form data has been sent successfully
+      viewDeal.style.display = "block";
+
+      // The submitFormData function continues to work
     } catch (error) {
       console.error("Error, form data has not been sent!", error.message);
     }
