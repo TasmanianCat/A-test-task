@@ -11,8 +11,8 @@
     <div class="wrapper">
       <div class="menu-button" id="menuButton">
         <svg class="close-button__icon">
-              <use xlink:href="/icons/sprite.svg#icon-more-horizontal"></use>
-            </svg>
+          <use xlink:href="/icons/sprite.svg#icon-more-horizontal"></use>
+        </svg>
       </div>
       <div class="modal" id="modal">
         <div class="modal__top-panel">
@@ -25,7 +25,7 @@
             </svg>
           </div>
         </div>
-        
+
         <div class="modal__form">
           <form class="form" id="form">
             <div class="client-details">
@@ -46,7 +46,7 @@
                   required
                 />
               </div>
-              <!-- <input
+              <input
                 type="tel"
                 name="tel"
                 id="tel"
@@ -65,11 +65,14 @@
               <h3>Job type</h3>
               <select name="selectJob" id="selectJob">
                 <option value="0">Select job type</option>
-                <option value="1">Recall job</option>
+                <option value="Recall job">Recall job</option>
+                <option value="Another job">Another job</option>
               </select>
               <select name="selectAddInfo" id="selectAddInfo">
-                <option value="0">GL Pinellas</option>
-                <option value="1">PR Pinellas</option>
+                <option value="0">Select industry</option>
+                <option value="Retail">Retail</option>
+                <option value="Construction">Construction</option>
+                <option value="Financial services">Financial services</option>
               </select>
               <textarea
                 name="description"
@@ -111,11 +114,11 @@
                 />
                 <select name="selectArea" id="selectArea">
                   <option value="0">Area</option>
-                  <option value="1">Bronx</option>
-                  <option value="2">Brooklyn</option>
-                  <option value="3">Manhattan</option>
-                  <option value="4">Queens</option>
-                  <option value="5">Staten Island</option>
+                  <option value="Bronx">Bronx</option>
+                  <option value="Brooklyn">Brooklyn</option>
+                  <option value="Manhattan">Manhattan</option>
+                  <option value="Queens">Queens</option>
+                  <option value="Staten Island">Staten Island</option>
                 </select>
               </div>
             </div>
@@ -123,20 +126,20 @@
               <h3>Scheduled</h3>
               <input type="date" name="date" id="date" required />
               <div class="joined-fields">
-                <input type="time" name="beginTime" id="beginTime" />
+                <input type="time" name="beginTime" id="beginTime" required />
                 <input type="time" name="finishTime" id="finishTime" required />
               </div>
               <select name="selectTechnician" id="selectTechnician">
                 <option value="0">Select technician</option>
-                <option value="1">John Smith</option>
-                <option value="2">Edward Teach</option>
-                <option value="3">Jack Sparrow</option>
-                <option value="4">Katherine Brown</option>
-                <option value="5">James Cook</option>
+                <option value="John Smith">John Smith</option>
+                <option value="Edward Teach">Edward Teach</option>
+                <option value="Jack Sparrow">Jack Sparrow</option>
+                <option value="Katherine Brown">Katherine Brown</option>
+                <option value="James Cook">James Cook</option>
               </select>
-            </div> -->
+            </div>
             <div class="create-job">
-              <button 
+              <button
                 type="submit"
                 class="create-job-button"
                 id="createJobButton"
@@ -145,7 +148,7 @@
               </button>
             </div>
             <div class="save-info">
-              <button 
+              <button
                 type="submit"
                 class="save-info-button"
                 id="saveInfoButton"
@@ -156,8 +159,14 @@
           </form>
         </div>
         <div class="view-deal" id="viewDeal">
-            <h3>Job is created! <a href="https://credo-expertllc.pipedrive.com/deal/16">View Deal</a> <span>View in Workiz</span></h3>
-          </div>
+          <h3>
+            Job is created!
+            <a href="https://credo-expertllc.pipedrive.com/deal/16"
+              >View Deal</a
+            >
+            <span>View in Workiz</span>
+          </h3>
+        </div>
       </div>
     </div>
     <script src="scripts/main.js"></script>

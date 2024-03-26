@@ -179,7 +179,7 @@ span {
   display: block;
   width: 100%;
   margin: 0 auto;
-  height: 726px;
+  /* height: 726px; */
 }
 
 .form {
