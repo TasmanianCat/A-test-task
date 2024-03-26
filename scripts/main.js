@@ -207,3 +207,41 @@ function clearForm() {
   }
   return false;
 }
+
+//! New feature for the "Save info" button
+const saveJobBtn = document.getElementById("saveInfoButton");
+saveJobBtn.addEventListener("click", async (event) => {
+  event.preventDefault();
+
+  // Get form data from all fields
+  const formData = new FormData(form);
+
+  // Using the highlightInvalidFields function (I wrote it above)
+  if (!validationFormFields(form)) {
+    return;
+  }
+
+  const jsonData = {};
+
+  formData.forEach(function (value, key) {
+    jsonData[key] = value;
+  });
+
+  // Convert the JSON object to a string
+  const jsonString = JSON.stringify(jsonData);
+
+  // Create a blob object with the JSON data
+  const blob = new Blob([jsonString], { type: "application/json" });
+
+  // Create a temporary anchor element
+  const a = document.createElement("a");
+
+  a.download = "formData.json";
+  a.href = window.URL.createObjectURL(blob);
+
+  // Trigger download
+  a.click();
+
+  // Clear form fields after form data has been sent successfully
+  clearForm();
+});
