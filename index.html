@@ -3,172 +3,44 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="styles/styles.css" />
-    <title>A New Job Form</title>
+    <title>Save Form Data to JSON</title>
   </head>
   <body>
-    <h1>A New Create Job Form</h1>
-    <div class="wrapper">
-      <div class="menu-button" id="menuButton">
-        <svg class="close-button__icon">
-          <use xlink:href="/icons/sprite.svg/SVG/#icon-more-horizontal"></use>
-        </svg>
-      </div>
-      <div class="modal" id="modal">
-        <div class="modal__top-panel">
-          <div class="action-description">
-            <h2>NEW create a job</h2>
-          </div>
-          <div class="close-button" id="closeButton">
-            <svg class="close-button__icon">
-              <use xlink:href="/icons/sprite.svg/SVG/#icon-x"></use>
-            </svg>
-          </div>
-        </div>
+    <form id="contactForm">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required /><br /><br />
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required /><br /><br />
+      <button type="submit">Submit</button>
+    </form>
 
-        <div class="modal__form">
-          <form class="form" id="form">
-            <div class="client-details">
-              <h3>Client details</h3>
-              <div class="joined-fields">
-                <input
-                  type="text"
-                  name="firstName"
-                  id="firstName"
-                  placeholder="First name"
-                  required
-                />
-                <input
-                  type="text"
-                  name="lastName"
-                  id="lastName"
-                  placeholder="Last name"
-                  required
-                />
-              </div>
-              <input
-                type="tel"
-                name="tel"
-                id="tel"
-                placeholder="Phone number"
-                required
-              />
-              <input
-                type="email"
-                name="email"
-                id="email"
-                placeholder="Email address"
-                required
-              />
-            </div>
-            <div class="job-type">
-              <h3>Job type</h3>
-              <select name="selectJob" id="selectJob">
-                <option value="0">Select job type</option>
-                <option value="Recall job">Recall job</option>
-                <option value="Another job">Another job</option>
-              </select>
-              <select name="selectAddInfo" id="selectAddInfo">
-                <option value="0">Select industry</option>
-                <option value="Retail">Retail</option>
-                <option value="Construction">Construction</option>
-                <option value="Financial services">Financial services</option>
-              </select>
-              <textarea
-                name="description"
-                id="description"
-                rows="4"
-                placeholder="Job description (optional)"
-              ></textarea>
-            </div>
-            <div class="service-location">
-              <h3>Service location</h3>
-              <input
-                type="text"
-                name="address"
-                id="address"
-                placeholder="Address"
-                required
-              />
-              <input
-                type="text"
-                name="city"
-                id="city"
-                placeholder="City"
-                required
-              />
-              <input
-                type="text"
-                name="state"
-                id="state"
-                placeholder="State"
-                required
-              />
-              <div class="joined-fields">
-                <input
-                  type="text"
-                  name="zipCode"
-                  id="zipCode"
-                  placeholder="ZIP Code"
-                  required
-                />
-                <select name="selectArea" id="selectArea">
-                  <option value="0">Area</option>
-                  <option value="Bronx">Bronx</option>
-                  <option value="Brooklyn">Brooklyn</option>
-                  <option value="Manhattan">Manhattan</option>
-                  <option value="Queens">Queens</option>
-                  <option value="Staten Island">Staten Island</option>
-                </select>
-              </div>
-            </div>
-            <div class="scheduled">
-              <h3>Scheduled</h3>
-              <input type="date" name="date" id="date" required />
-              <div class="joined-fields">
-                <input type="time" name="beginTime" id="beginTime" required />
-                <input type="time" name="finishTime" id="finishTime" required />
-              </div>
-              <select name="selectTechnician" id="selectTechnician">
-                <option value="0">Select technician</option>
-                <option value="John Smith">John Smith</option>
-                <option value="Edward Teach">Edward Teach</option>
-                <option value="Jack Sparrow">Jack Sparrow</option>
-                <option value="Katherine Brown">Katherine Brown</option>
-                <option value="James Cook">James Cook</option>
-              </select>
-            </div>
-            <div class="create-job">
-              <button
-                type="submit"
-                class="create-job-button"
-                id="createJobButton"
-              >
-                Create job
-              </button>
-            </div>
-            <div class="save-info">
-              <button
-                type="submit"
-                class="save-info-button"
-                id="saveInfoButton"
-              >
-                Save info
-              </button>
-            </div>
-          </form>
-        </div>
-        <div class="view-deal" id="viewDeal">
-          <h3>
-            Job is created!
-            <a href="https://credo-expertllc.pipedrive.com/deal/16"
-              >View Deal</a
-            >
-            <span>View in Workiz</span>
-          </h3>
-        </div>
-      </div>
-    </div>
-    <script src="scripts/main.js"></script>
+    <script>
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // Prevent form submission
+
+          // Get form data
+          var formData = new FormData(this);
+          var jsonData = {};
+          formData.forEach(function (value, key) {
+            jsonData[key] = value;
+          });
+
+          // Convert JSON object to string
+          var jsonString = JSON.stringify(jsonData);
+
+          // Create a blob object with the JSON data
+          var blob = new Blob([jsonString], { type: "application/json" });
+
+          // Create a temporary anchor element
+          var a = document.createElement("a");
+          a.download = "formData.json";
+          a.href = window.URL.createObjectURL(blob);
+
+          // Trigger download
+          a.click();
+        });
+    </script>
   </body>
 </html>
