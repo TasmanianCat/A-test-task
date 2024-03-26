@@ -21,6 +21,33 @@ closeBtn.addEventListener("click", (event) => {
   //   createJobBtn.innerHTML = "Create job";
 });
 
+//! Some form validation for fields of the form
+function highlightInvalidFields(form) {
+  const invalidFields = form.querySelectorAll(":invalid");
+  invalidFields.forEach((field) => {
+    // Red color of borders for invalid fields
+    field.style.outlineColor = "red";
+  });
+
+  // Reset border color for valid fields
+  const validFields = form.querySelectorAll(":valid");
+  validFields.forEach((field) => {
+    field.style.outlineColor = ""; // Reset border color
+  });
+}
+
+// Function for form validation
+function validationFormFields(form) {
+  if (!form.checkValidity()) {
+    // If form is not valid, return false to prevent further processing
+    highlightInvalidFields(form);
+    // Display validation messages to the user
+    form.reportValidity();
+    return false;
+  }
+  return true;
+}
+
 //! Functionality: sent POST request
 const form = document.getElementById("form");
 const formData = new FormData(form);
@@ -30,6 +57,12 @@ const createJobBtn = document.getElementById("createJobButton");
 createJobBtn.addEventListener("click", async (event) => {
   event.preventDefault();
 
+  // Using the highlightInvalidFields function (I wrote it above)
+  if (!validationFormFields(form)) {
+    return;
+  }
+
+  // Submit request by clicking the Create Job Button
   const first_address_url = "https://api.workiz.com/job/97CUTT";
   var second_address_url = "https://httpbin.org/post";
 
