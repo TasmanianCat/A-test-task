@@ -107,104 +107,103 @@ createJobBtn.addEventListener("click", async (event) => {
 });
 
 //! Functionality: clear form after data has been sent successfully
+// function clearForm() {
+//   form.reset();
+// }
+
 // Clear form fields after form data has been sent successfully (This function was placed above)
 function clearForm() {
-  form.reset();
+  const firstNameInp = document.getElementById("firstName");
+  if (firstNameInp.value !== "" && firstNameInp.value !== null) {
+    firstNameInp.value = "";
+    firstNameInp.style.outlineColor = "";
+  }
+
+  const lastNameInp = document.getElementById("lastName");
+  if (lastNameInp.value !== "" && lastNameInp.value !== null) {
+    lastNameInp.value = "";
+    lastNameInp.style.outlineColor = "";
+  }
+  const telInp = document.getElementById("tel");
+  if (telInp.value !== "" && telInp.value !== null) {
+    telInp.value = "";
+    telInp.style.outlineColor = "";
+  }
+
+  const emailInp = document.getElementById("email");
+  if (emailInp.value !== "" && emailInp.value !== null) {
+    emailInp.value = "";
+    emailInp.style.outlineColor = "";
+  }
+
+  const selectJobInp = document.getElementById("selectJob");
+  if (selectJobInp.value !== "" && selectJobInp.value !== null) {
+    selectJobInp.value = "0";
+    selectJobInp.style.outlineColor = "";
+  }
+
+  const selectAddInfoInp = document.getElementById("selectAddInfo");
+  if (selectAddInfoInp.value !== "" && selectAddInfoInp.value !== null) {
+    selectAddInfoInp.value = "0";
+    selectAddInfoInp.style.outlineColor = "";
+  }
+
+  const descriptionInp = document.getElementById("description");
+  if (descriptionInp.value !== "" && descriptionInp.value !== null) {
+    descriptionInp.value = "";
+    descriptionInp.style.outlineColor = "";
+  }
+
+  const addressInp = document.getElementById("address");
+  if (addressInp.value !== "" && addressInp.value !== null) {
+    addressInp.value = "";
+    addressInp.style.outlineColor = "";
+  }
+
+  const cityInp = document.getElementById("city");
+  if (cityInp.value !== "" && cityInp.value !== null) {
+    cityInp.value = "";
+    cityInp.style.outlineColor = "";
+  }
+  const stateInp = document.getElementById("state");
+  if (stateInp.value !== "" && stateInp.value !== null) {
+    stateInp.value = "";
+    stateInp.style.outlineColor = "";
+  }
+
+  const zipCodeInp = document.getElementById("zipCode");
+  if (zipCodeInp.value !== "" && zipCodeInp.value !== null) {
+    zipCodeInp.value = "";
+    zipCodeInp.style.outlineColor = "";
+  }
+
+  const selectAreaInp = document.getElementById("selectArea");
+  if (selectAreaInp.value !== "" && selectAreaInp.value !== null) {
+    selectAreaInp.value = "0";
+    selectAreaInp.style.outlineColor = "";
+  }
+
+  const dateInp = document.getElementById("date");
+  if (dateInp.value !== "" && dateInp.value !== null) {
+    dateInp.value = "";
+    dateInp.style.outlineColor = "";
+  }
+  const beginTimeInp = document.getElementById("beginTime");
+  if (beginTimeInp.value !== "" && beginTimeInp.value !== null) {
+    beginTimeInp.value = "";
+    beginTimeInp.style.outlineColor = "";
+  }
+
+  const finishTimeInp = document.getElementById("finishTime");
+  if (finishTimeInp.value !== "" && finishTimeInp.value !== null) {
+    finishTimeInp.value = "";
+    finishTimeInp.style.outlineColor = "";
+  }
+
+  const selectTechnicianInp = document.getElementById("selectTechnician");
+  if (selectTechnicianInp.value !== "" && selectTechnicianInp.value !== null) {
+    selectTechnicianInp.value = "0";
+    selectTechnicianInp.style.outlineColor = "";
+  }
+  return false;
 }
-
-// Clear form fields
-// function clearForm() {
-//   const firstNameInp = document.getElementById("firstName");
-//   if (firstNameInp.value !== "" && firstNameInp.value !== null) {
-//     firstNameInp.value = "";
-//     firstNameInp.style.outlineColor = "";
-//   }
-
-//   const lastNameInp = document.getElementById("lastName");
-//   if (lastNameInp.value !== "" && lastNameInp.value !== null) {
-//     lastNameInp.value = "";
-//     lastNameInp.style.outlineColor = "";
-//   }
-//   const telInp = document.getElementById("tel");
-//   if (telInp.value !== "" && telInp.value !== null) {
-//     telInp.value = "";
-//     telInp.style.outlineColor = "";
-//   }
-
-//   const emailInp = document.getElementById("email");
-//   if (emailInp.value !== "" && emailInp.value !== null) {
-//     emailInp.value = "";
-//     emailInp.style.outlineColor = "";
-//   }
-
-//   const selectJobInp = document.getElementById("selectJob");
-//   if (selectJobInp.value !== "" && selectJobInp.value !== null) {
-//     selectJobInp.value = "0";
-//     selectJobInp.style.outlineColor = "";
-//   }
-
-//   const selectAddInfoInp = document.getElementById("selectAddInfo");
-//   if (selectAddInfoInp.value !== "" && selectAddInfoInp.value !== null) {
-//     selectAddInfoInp.value = "0";
-//     selectAddInfoInp.style.outlineColor = "";
-//   }
-
-//   const descriptionInp = document.getElementById("description");
-//   if (descriptionInp.value !== "" && descriptionInp.value !== null) {
-//     descriptionInp.value = "";
-//     descriptionInp.style.outlineColor = "";
-//   }
-
-//   const addressInp = document.getElementById("address");
-//   if (addressInp.value !== "" && addressInp.value !== null) {
-//     addressInp.value = "";
-//     addressInp.style.outlineColor = "";
-//   }
-
-//   const cityInp = document.getElementById("city");
-//   if (cityInp.value !== "" && cityInp.value !== null) {
-//     cityInp.value = "";
-//     cityInp.style.outlineColor = "";
-//   }
-//   const stateInp = document.getElementById("state");
-//   if (stateInp.value !== "" && stateInp.value !== null) {
-//     stateInp.value = "";
-//     stateInp.style.outlineColor = "";
-//   }
-
-//   const zipCodeInp = document.getElementById("zipCode");
-//   if (zipCodeInp.value !== "" && zipCodeInp.value !== null) {
-//     zipCodeInp.value = "";
-//     zipCodeInp.style.outlineColor = "";
-//   }
-
-//   const selectAreaInp = document.getElementById("selectArea");
-//   if (selectAreaInp.value !== "" && selectAreaInp.value !== null) {
-//     selectAreaInp.value = "0";
-//     selectAreaInp.style.outlineColor = "";
-//   }
-
-//   const dateInp = document.getElementById("date");
-//   if (dateInp.value !== "" && dateInp.value !== null) {
-//     dateInp.value = "";
-//     dateInp.style.outlineColor = "";
-//   }
-//   const beginTimeInp = document.getElementById("beginTime");
-//   if (beginTimeInp.value !== "" && beginTimeInp.value !== null) {
-//     beginTimeInp.value = "";
-//     beginTimeInp.style.outlineColor = "";
-//   }
-
-//   const finishTimeInp = document.getElementById("finishTime");
-//   if (finishTimeInp.value !== "" && finishTimeInp.value !== null) {
-//     finishTimeInp.value = "";
-//     finishTimeInp.style.outlineColor = "";
-//   }
-
-//   const selectTechnicianInp = document.getElementById("selectTechnician");
-//   if (selectTechnicianInp.value !== "" && selectTechnicianInp.value !== null) {
-//     selectTechnicianInp.value = "0";
-//     selectTechnicianInp.style.outlineColor = "";
-//   }
-//   return false;
-// }
