@@ -20,3 +20,39 @@ closeBtn.addEventListener("click", (event) => {
   //   createJobBtn.style.fontSize = "";
   //   createJobBtn.innerHTML = "Create job";
 });
+
+//! Functionality: sent POST request
+const form = document.getElementById("form");
+const formData = new FormData(form);
+
+const createJobBtn = document.getElementById("createJobButton");
+
+createJobBtn.addEventListener("click", async (event) => {
+  event.preventDefault();
+
+  const first_address_url = "https://api.workiz.com/job/97CUTT";
+  var second_address_url = "https://httpbin.org/post";
+
+  async function submitFormData() {
+    try {
+      const response = await fetch(second_address_url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(Object.fromEntries(formData)),
+      });
+
+      if (!response.ok) {
+        throw new Error("Something went wrong with the response!");
+      }
+
+      const responseData = await response.json();
+      console.log("Form data has been sent successfully!", responseData);
+    } catch (error) {
+      console.error("Error, form data has not been sent!", error.message);
+    }
+  }
+
+  await submitFormData();
+});
