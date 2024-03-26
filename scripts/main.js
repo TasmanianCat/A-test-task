@@ -245,3 +245,5 @@ saveJobBtn.addEventListener("click", async (event) => {
   // Clear form fields after form data has been sent successfully
   clearForm();
 });
+
+// Finish
