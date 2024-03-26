@@ -62,6 +62,11 @@ createJobBtn.addEventListener("click", async (event) => {
     return;
   }
 
+  // Changing CSS properties for the createJobButton (color, font-size and the inner text)
+  createJobBtn.style.backgroundColor = "red";
+  createJobBtn.style.fontSize = "1rem";
+  createJobBtn.innerHTML = "Request is sent";
+
   // Submit request by clicking the Create Job Button
   const first_address_url = "https://api.workiz.com/job/97CUTT";
   var second_address_url = "https://httpbin.org/post";
